@@ -1,9 +1,172 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.prose .anchor {
+  @apply absolute invisible no-underline;
 
-body {
-  background: #ed4264;
-  background: -webkit-linear-gradient(to right, #ffedbc, #ed4264);
-  background: linear-gradient(to right, #ffedbc, #ed4264);
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply transition-all;
+}
+
+.prose .anchor:after {
+  @apply text-grayish-300;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose pre {
+  @apply border border-grayish-200 bg-grayish-100 py-8 px-5;
+}
+
+.prose code {
+  @apply text-grayish-800 px-1 py-0.5 border border-grayish-100 rounded-lg bg-grayish-100;
+}
+
+.prose pre code {
+  @apply text-grayish-800 p-0 text-sm;
+  border: initial;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply my-0 mx-auto block;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-grayish-700;
+}
+
+.token.punctuation {
+  @apply text-grayish-700;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  @apply text-green-500;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-purple-500;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply text-yellow-500;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  @apply text-blue-500;
+}
+
+.token.function,
+.token.class-name {
+  @apply text-pink-500;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-yellow-500;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply text-grayish-800;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply text-grayish-800;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.rehype-code-title {
+  @apply px-5 py-3 font-mono text-sm font-bold text-grayish-800 bg-grayish-200 border border-b-0 border-grayish-200 rounded-t-lg;
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
+}
+
+.highlight-line {
+  @apply block px-4 -mx-4 bg-grayish-100 border-l-4 border-blue-500;
+}
+
+.prose .callout > p {
+  margin: 0 !important;
+}
+
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  scroll-margin-top: 100px;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.rehype-code-title {
+  @apply px-5 py-3 font-mono text-sm font-bold text-grayish-800 bg-grayish-200 border border-b-0 border-grayish-200 rounded-t-lg;
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
+}
+
+.highlight-line {
+  @apply block px-4 -mx-4 bg-grayish-100 border-l-4 border-blue-500;
 }
