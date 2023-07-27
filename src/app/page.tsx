@@ -1,7 +1,34 @@
+import Card from "@/componets/Card";
+
+const data_cards = [
+  {
+    title: "Button",
+    description: "Custom button",
+  },
+  {
+    title: "Button",
+    description: "Custom button",
+  },
+  {
+    title: "Button",
+    description: "Custom button",
+  },
+  {
+    title: "Button",
+    description: "Custom button",
+  },
+  {
+    title: "Button",
+    description: "Custom button",
+  },
+];
+
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-base text-red-500">Hey chaimaa</h1>
-    </div>
+    <section className="max-w-[1000px] py-20 h-screen w-full mx-auto flex flex-col space-y-6">
+      {data_cards.map((card, index: number) => (
+        <Card index={index} key={index} {...card} />
+      ))}
+    </section>
   );
 }

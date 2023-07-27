@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
+<<<<<<< Updated upstream
 @tailwind utilities;
+=======
+@tailwind utilities;
+
+body {
+  background: #ed4264;
+  background: -webkit-linear-gradient(to right, #ffedbc, #ed4264);
+  background: linear-gradient(to right, #ffedbc, #ed4264);
+}
+>>>>>>> Stashed changes
