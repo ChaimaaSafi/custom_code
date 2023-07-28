@@ -58,7 +58,7 @@ function Card({ title, description, slug, index }: CardProps) {
       >
         <div className="text-start">
           <h2 className="text-xl font-medium text-[#ED4264]">{title}</h2>
-          <p className="text-base font-normal">{description}</p>
+          <p className="text-sm font-normal text-gray-800">{description}</p>
         </div>
         <div className="arrow" style={{ transformOrigin: "50% 55%" }}>
           <ChevronDoubleIcon />

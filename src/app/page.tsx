@@ -3,28 +3,31 @@ import Card from "@/componets/Card";
 const data_cards = [
   {
     title: "Button",
-    description: "Custom button",
-    slug: "hello-world",
+    description:
+      "Our custom button component is designed to put you in control of your button's style. With the ability to set your own variants.",
+    slug: "custom-button",
   },
   {
-    title: "Button",
-    description: "Custom button",
-    slug: "hello-world",
+    title: "Title",
+    description:
+      "Our custom title component offers a simple yet powerful feature to cater to your design needs",
+    slug: "custom-title",
   },
   {
-    title: "Button",
-    description: "Custom button",
-    slug: "hello-world",
+    title: "Paragraph",
+    description:
+      "Custom Paraghraph with the  `isPrimary prop`, you now have the flexibility to tailor each paragraph's style to suit your specific design requirements.",
+    slug: "custom-paragraph",
   },
   {
-    title: "Button",
-    description: "Custom button",
-    slug: "hello-world",
+    title: "Input",
+    description: "Try the Input and add your own style",
+    slug: "custom-input",
   },
   {
-    title: "Button",
-    description: "Custom button",
-    slug: "hello-world",
+    title: "Image",
+    description: "Custom Image with the Loading style",
+    slug: "custom-image",
   },
 ];
 
