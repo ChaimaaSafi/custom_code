@@ -8,7 +8,6 @@ module.exports = {
     extend: {
       colors: {
         grayish: {
-          0: '#fff',
           100: '#fafafa',
           200: '#eaeaea',
           300: '#999999',
