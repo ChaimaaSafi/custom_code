@@ -5,10 +5,10 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-var Post = defineDocumentType(() => ({
-  name: "Post",
+var Code = defineDocumentType(() => ({
+  name: "Code",
   contentType: "mdx",
-  filePathPattern: "posts/*.mdx",
+  filePathPattern: "codes/*.mdx",
   fields: {
     title: {
       type: "string",
@@ -18,14 +18,14 @@ var Post = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: "string",
-      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, "")
+      resolve: (code) => code._raw.sourceFileName.replace(/\.mdx$/, "")
     }
   }
 }));
 var contentlayer_config_default = makeSource({
   // Location of source files for all defined documentTypes
   contentDirPath: "src/app/content",
-  documentTypes: [Post],
+  documentTypes: [Code],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
@@ -44,7 +44,7 @@ var contentlayer_config_default = makeSource({
   }
 });
 export {
-  Post,
+  Code,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-7TL3Y57J.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-X6ENXNEW.mjs.map
