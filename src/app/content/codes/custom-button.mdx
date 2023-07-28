@@ -1,68 +1,46 @@
-// App.tsx
+---
+ title: "Custom Button"
+---
+ 
+```tsx
 
-import React, {useEffect, useState} from 'react';
-import {NativeEventEmitter, NativeModules, Text, View} from 'react-native';
+import React, { ButtonHTMLAttributes } from 'react';
+import type {  ReactNode } from "react";
 
-const {NetworkStatus} = NativeModules;
-const networkStatusEmitter = new NativeEventEmitter(NetworkStatus);
+const VARIANTS: { [key: string]: string } = {
+  primary: "bg-blue-700 text-white px-3 py-1.5",
+  save: "",
+  add: "",
+  secondary: "",
 
-const App = () => {
-  const [networkStatus, setNetworkStatus] = useState('unknown');
-  useEffect(() => {
+};
 
-    networkStatusEmitter.addListener('networkStatusChanged', ({status}) => {
-      console.warn('Network status changed:', status);
-      setNetworkStatus(status);
-    });
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: keyof typeof VARIANTS;
+  children?: ReactNode;
+  className?: string;
+};
 
-    NetworkStatus.startMonitoring();
-    return () => {
-      networkStatusEmitter.removeAllListeners('networkStatusChanged');
-      NetworkStatus.stopMonitoring();
-    };
-  }, []);
-
+function Button  ({
+  variant='primary' ,
+  children,
+  disabled,
+  className,
+  ...rest
+}: ButtonProps) {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View>
-       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View>  
-     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View> 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View> 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View> 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View> 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View>  
-     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View> 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View> 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View>  
-     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View>  
-     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View> 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{networkStatus}</Text>
-    </View>
+    <button
+      className={`${className} flex cursor-pointer items-center justify-center
+       space-x-2 rounded-md  text-lg font-semibold normal-case shadow-sm
+       transition  duration-300 hover:shadow-md disabled:cursor-not-allowed 
+       disabled:opacity-50 ${VARIANTS[variant]}`}
+       {...rest}
+    >
+      {children}
+    </button>
   );
 };
 
-export default App;
+export default Button;
+
+```

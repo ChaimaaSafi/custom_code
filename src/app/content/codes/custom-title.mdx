@@ -1,0 +1,30 @@
+---
+ title: "Custom Title"
+---
+ 
+```tsx
+
+export type TitleProps = {
+    isPrimary?: boolean;
+    title: string;
+    className?: string;
+  };
+  
+  function Title({ isPrimary = false, title, className }: TitleProps) {
+    return isPrimary ? (
+      <h2 className={` mb-3 mt-4 text-2xl lg:mb-5 lg:text-3xl ${className}`}>
+        {title}
+      </h2>
+    ) : (
+      <h3
+        className={`${className} mb-3 mt-4 text-lg lg:mb-5 lg:text-xl`}
+      >
+        {title}
+      </h3>
+    );
+  }
+  
+  export default Title;
+  
+
+```
