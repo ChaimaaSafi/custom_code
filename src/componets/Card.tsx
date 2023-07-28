@@ -3,11 +3,13 @@ import ChevronDoubleIcon from "@/icons/ChevronDoubleIcon";
 import { AnimatePresence, motion, stagger, useAnimate } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
+import CodeSnippet from "./CodeSnippet";
 
 type CardProps = {
   title: string;
   description: string;
   index: number;
+  slug: string;
 };
 
 const menu = {
@@ -29,7 +31,7 @@ const menu = {
     },
   },
 };
-function Card({ title, description, index }: CardProps) {
+function Card({ title, description, slug, index }: CardProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -47,6 +49,7 @@ function Card({ title, description, index }: CardProps) {
         duration: 0.4,
         delay: index * 0.2,
       }}
+      className="w-full"
     >
       <motion.button
         className="px-4 py-2.5 w-full bg-white rounded-xl flex items-center justify-between"
@@ -62,15 +65,7 @@ function Card({ title, description, index }: CardProps) {
         </div>
       </motion.button>
       <Modal showModal={open} setShowModal={() => setOpen(false)}>
-        <p>gvbjhkgjhfcbbjjh</p>
-        <p>gvbjhkgjhfcbbjjh</p>
-        <p>gvbjhkgjhfcbbjjh</p>
-        <p>gvbjhkgjhfcbbjjh</p>
-        <p>gvbjhkgjhfcbbjjh</p>
-        <p>gvbjhkgjhfcbbjjh</p>
-        <p>gvbjhkgjhfcbbjjh</p>
-        <p>gvbjhkgjhfcbbjjh</p>
-        <p>gvbjhkgjhfcbbjjh</p>
+        <CodeSnippet slug={slug} />
       </Modal>
     </motion.div>
   );
