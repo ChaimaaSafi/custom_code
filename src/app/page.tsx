@@ -4,22 +4,27 @@ const data_cards = [
   {
     title: "Button",
     description: "Custom button",
+    slug: "hello-world",
   },
   {
     title: "Button",
     description: "Custom button",
+    slug: "hello-world",
   },
   {
     title: "Button",
     description: "Custom button",
+    slug: "hello-world",
   },
   {
     title: "Button",
     description: "Custom button",
+    slug: "hello-world",
   },
   {
     title: "Button",
     description: "Custom button",
+    slug: "hello-world",
   },
 ];
 
