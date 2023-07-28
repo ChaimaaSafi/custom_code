@@ -11,8 +11,9 @@ function CodeSnippet({ slug }: TCode) {
   const codeRef = useRef(null);
   const [message, setMessage] = useState<string>("Copy code");
 
-  const post = allCodes.filter((code) => code.slug === slug);
-  const MDXContent = useMDXComponent(post[0]?.body.code);
+  const code = allCodes.filter((code) => code.slug === slug);
+
+  const MDXContent = useMDXComponent(code[0]?.body.code);
 
   const handleCopy = () => {
     //@ts-ignore
