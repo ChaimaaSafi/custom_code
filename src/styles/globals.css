@@ -44,7 +44,7 @@ body {
 }
 
 .prose pre {
-  @apply border border-grayish-200 bg-grayish-100 py-8 px-5;
+  @apply border border-grayish-200 bg-grayish-100 max-w-full overflow-scroll  px-5;
 }
 
 .prose code {
@@ -54,6 +54,8 @@ body {
 .prose pre code {
   @apply text-grayish-800 p-0 text-sm;
   border: initial;
+  max-width: 100%;
+  overflow: scroll;
 }
 
 .prose img {
