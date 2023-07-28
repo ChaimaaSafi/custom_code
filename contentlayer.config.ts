@@ -9,10 +9,10 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm'; 
 
 
-export const Post = defineDocumentType(() => ({
-  name: "Post",
+export const Code = defineDocumentType(() => ({
+  name: "Code",
   contentType: "mdx",
-  filePathPattern: "posts/*.mdx",
+  filePathPattern: "codes/*.mdx",
   fields: {
     title: {
       type: "string",
@@ -22,8 +22,8 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: "string",
-      resolve: (post) =>
-        post._raw.sourceFileName
+      resolve: (code) =>
+        code._raw.sourceFileName
           // hello-world.mdx => hello-world
           .replace(/\.mdx$/, ""),
     },
@@ -33,7 +33,7 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   // Location of source files for all defined documentTypes
   contentDirPath: "src/app/content",
-  documentTypes: [Post],
+  documentTypes: [Code],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
