@@ -16,7 +16,7 @@ const data_cards = [
   {
     title: "Paragraph",
     description:
-      "Custom Paraghraph with the  `isPrimary prop`, you now have the flexibility to tailor each paragraph's style to suit your specific design requirements.",
+      "Custom Paraghraph with the `isPrimary` prop, you now have the flexibility to tailor each paragraph's style to suit your specific design requirements.",
     slug: "custom-paragraph",
   },
   {
