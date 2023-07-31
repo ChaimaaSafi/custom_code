@@ -59,7 +59,7 @@ export default function Modal({
               animate="animate"
               exit="exit"
               transition={{ type: "ease", duration: 0.5 }}
-              className="absolute right-0 bg-white pb-8 lg:w-[60%]"
+              className="absolute right-0 bg-white pb-8 w-full lg:w-[60%]"
             >
               <div className="relative h-screen px-3 py-2" ref={divRef}>
                 {children}
