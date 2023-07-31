@@ -3,11 +3,13 @@ import ClipboardJS from "clipboard";
 import { allCodes } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import CopyIcon from "@/icons/CopyIcon";
+import CloseIcon from "@/icons/CloseIcon";
 
 type TCode = {
   slug: string;
+  closeModal: () => void;
 };
-function CodeSnippet({ slug }: TCode) {
+function CodeSnippet({ slug, closeModal }: TCode) {
   const codeRef = useRef(null);
   const [message, setMessage] = useState<string>("Copy code");
 
@@ -36,7 +38,10 @@ function CodeSnippet({ slug }: TCode) {
       className="prose mx-auto max-h-screen overflow-scroll mb-10 flex max-w-[1250px] flex-col justify-between"
       style={{ wordBreak: "break-word" }}
     >
-      <div className="w-full flex justify-end mb-5">
+      <div className="w-full flex items-center justify-between mb-5">
+        <button onClick={() => closeModal()}>
+          <CloseIcon />
+        </button>
         <button
           className="copy-btn bg-gray-300 px-3 py-1.5 text-sm rounded-md flex items-center space-x-2"
           onClick={handleCopy}
