@@ -49,23 +49,28 @@ function Card({ title, description, slug, index }: CardProps) {
         duration: 0.4,
         delay: index * 0.2,
       }}
-      className="w-full"
+      className="w-full min-h-[100px] h-full bg-white rounded-xl"
     >
       <motion.button
-        className="px-4 py-2.5 w-full bg-white rounded-xl flex items-center justify-between"
+        className="px-4 py-2.5 w-full  flex items-center justify-between"
         whileTap={{ scale: 0.97 }}
         onClick={() => setOpen(!open)}
       >
         <div className="text-start">
-          <h2 className="text-xl font-medium text-[#ED4264]">{title}</h2>
-          <p className="text-sm font-normal text-gray-800">{description}</p>
+          <h2 className="text-xl font-medium text-[#ED4264] mb-3">{title}</h2>
+          <p className="text-sm font-normal text-gray-800  max-w-[650px] leading-6">
+            {description}
+          </p>
         </div>
-        <div className="arrow" style={{ transformOrigin: "50% 55%" }}>
+        <div
+          className="arrow -rotate-90"
+          style={{ transformOrigin: "50% 55%" }}
+        >
           <ChevronDoubleIcon />
         </div>
       </motion.button>
       <Modal showModal={open} setShowModal={() => setOpen(false)}>
-        <CodeSnippet slug={slug} />
+        <CodeSnippet slug={slug} closeModal={() => setOpen(false)} />
       </Modal>
     </motion.div>
   );
