@@ -29,6 +29,11 @@ const data_cards = [
     description: "Custom Image with the Loading style",
     slug: "custom-image",
   },
+  {
+    title: "Carousel",
+    description: "A carousel code with a default style.Let's try it!",
+    slug: "custom-carousel",
+  },
 ];
 
 export default function Home() {
