@@ -190,3 +190,57 @@ pre {
 .highlight-line {
   @apply block px-4 -mx-4 bg-grayish-100 border-l-4 border-blue-500;
 }
+
+.carousel-index {
+  @apply h-px w-12 md:w-20 bg-black transition-all duration-500;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  transition: transform 0.3s ease;
+}
+
+.carousel-slide div {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-navigation button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.carousel-navigation button:hover {
+  background-color: #0056b3;
+}
+
+.carousel-slide.active {
+  transform: translateX(0);
+}
+
+.carousel-slide:not(.active) {
+  transform: translateX(100%);
+}
