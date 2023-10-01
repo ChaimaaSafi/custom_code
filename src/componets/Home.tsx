@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
 import me from "@/public/assets/me.png";
-import Button from "@/components/core/Button";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Button from "@/componets/core/Button";
 
 function Home() {
   const targetRef = useRef<HTMLDivElement>(null);
