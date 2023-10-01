@@ -1,6 +1,6 @@
 "use client";
 
-import Blogs from "@/componets/Blogs";
+import Blogs from "@/componets/sections/Blogs";
 
 export default function Home() {
   return (
