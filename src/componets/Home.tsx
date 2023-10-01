@@ -10,6 +10,7 @@ function Home() {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
+    //@ts-ignore
     offset: ["start start", "end start"],
   });
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
