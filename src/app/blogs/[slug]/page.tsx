@@ -29,7 +29,6 @@ import { allPosts } from "contentlayer/generated";
 
 export default function Page({ params }: any) {
   const post = allPosts[0];
-  console.log(post);
   const MDXContent = useMDXComponent(post?.body?.code);
 
   return (
