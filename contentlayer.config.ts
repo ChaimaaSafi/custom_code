@@ -9,39 +9,31 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm'; 
 
 
-
-const computedFields: ComputedFields = {
-  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
-
-  slug: {
-    type: 'string',
-    resolve: (doc) =>
-      // eslint-disable-next-line no-underscore-dangle
-      doc._raw.sourceFileDir
-        .replace('codes/', '')
-        .replace(/[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}-/g, '')
-        .toLocaleLowerCase(),
-  },
-};
-
-export const Post = defineDocumentType(() => ({
-  name: "Post",
+export const Code = defineDocumentType(() => ({
+  name: "Code",
   contentType: "mdx",
-  filePathPattern: '**/*.mdx',
+  filePathPattern: "codes/*.mdx",
   fields: {
-    title: { type: 'string', required: true },
-    date: { type: 'date', required: true },
-    hero: { type: 'string', required: true },
-    description: { type: 'string', required: true },
+    title: {
+      type: "string",
+      required: true,
+    },
   },
-computedFields
-
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (code) =>
+        code._raw.sourceFileName
+          // hello-world.mdx => hello-world
+          .replace(/\.mdx$/, ""),
+    },
+  },
 }))
  
 export default makeSource({
   // Location of source files for all defined documentTypes
-  contentDirPath: "src/app/posts",
-  documentTypes: [Post],
+  contentDirPath: "src/app/content",
+  documentTypes: [Code],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
